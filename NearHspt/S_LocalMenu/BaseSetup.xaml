@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<x1:ContentPage
+  x:Class="NearHspt.BaseSetup"
+  xmlns="http://xamarin.com/schemas/2014/forms"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+  xmlns:button="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:checkbox="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:chipGroup="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:chips="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+  xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+  xmlns:local="clr-namespace:NearHspt.AA_Utilities"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:radiobutton="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:radiogroup="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:segmentedcontrol="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:sfPopup="clr-namespace:Syncfusion.XForms.SfPopupLayout;assembly=Syncfusion.SfPopupLayout.XForms"
+  xmlns:sfSwitch="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:x1="http://xamarin.com/schemas/2014/forms"
+  mc:Ignorable="d">
+
+  <x1:ContentPage.Padding>
+    <x1:OnPlatform x:TypeArguments="Thickness">
+      <x1:On Platform="iOS" Value="0, 20, 0, 0" />
+      <x1:On Platform="Android" Value="0, 0, 0, 0" />
+      <x1:On Platform="UWP" Value="0, 0, 0, 0" />
+    </x1:OnPlatform>
+  </x1:ContentPage.Padding>
+
+  <x1:StackLayout>
+    <x1:ScrollView>
+      <x1:Grid
+        Padding="1"
+        BackgroundColor="#E9DC0B"
+        RowSpacing="6">
+        <x1:Grid.RowDefinitions>
+          <x1:RowDefinition Height="40" />
+          <x1:RowDefinition Height="40" />
+          <x1:RowDefinition Height="40" />
+
+        </x1:Grid.RowDefinitions>
+
+
+        <x1:Grid.ColumnDefinitions>
+          <x1:ColumnDefinition Width="100" />
+          <x1:ColumnDefinition Width="400*" />
+        </x1:Grid.ColumnDefinitions>
+
+        <!--  ==================  -->
+        <!--  Name Text  -->
+        <!--  ==================  -->
+        <x1:StackLayout
+          Grid.Row="0"
+          Grid.Column="0"
+          HorizontalOptions="Center"
+          VerticalOptions="Center">
+          <x1:Label
+            Margin="0,5,0,5"
+            BackgroundColor="Black"
+            FontSize="Micro"
+            HorizontalTextAlignment="End"
+            Text="Your Name...:"
+            TextColor="White"
+            VerticalTextAlignment="Center" />
+        </x1:StackLayout>
+
+        <!--  ==================  -->
+        <!--  Name Input  -->
+        <!--  ==================  -->
+        <x1:StackLayout
+          Grid.Row="0"
+          Grid.Column="1"
+          HorizontalOptions="Center"
+          VerticalOptions="Center">
+          <inputLayout:SfTextInputLayout
+            ContainerBackgroundColor="#E6EEF9"
+            ContainerType="Filled"
+            FocusedColor="#0450C2"
+            HeightRequest="30"
+            InputViewPadding="8"
+            OutlineCornerRadius="8">
+            <x1:Entry
+              x:Name="ownersNameEntry"
+              Completed="ownersNameEntry_Completed"
+              FontSize="Small"
+              HeightRequest="40"
+              Keyboard="Text"
+              Placeholder="Name"
+              Text=""
+              TextChanged="ownersNameEntry_TextChanged"
+              VerticalOptions="Center" />
+          </inputLayout:SfTextInputLayout>
+        </x1:StackLayout>
+
+        <!--  ==================  -->
+        <!--  Phone Text  -->
+        <!--  ==================  -->
+        <x1:StackLayout
+          Grid.Row="1"
+          Grid.Column="0"
+          HorizontalOptions="Center"
+          VerticalOptions="Center">
+          <x1:Label
+            Margin="0,5,0,5"
+            BackgroundColor="Black"
+            FontSize="Micro"
+            HorizontalOptions="FillAndExpand"
+            HorizontalTextAlignment="End"
+            Text="Your Phone...:"
+            TextColor="White"
+            VerticalTextAlignment="Center" />
+        </x1:StackLayout>
+
+        <!--  ==================  -->
+        <!--  Phone Input  -->
+        <!--  ==================  -->
+        <x1:StackLayout
+          Grid.Row="1"
+          Grid.Column="1"
+          HorizontalOptions="Center"
+          VerticalOptions="Center">
+          <inputLayout:SfTextInputLayout
+            ContainerBackgroundColor="#E6EEF9"
+            ContainerType="Filled"
+            FocusedColor="#0450C2"
+            HeightRequest="30"
+            InputViewPadding="8"
+            OutlineCornerRadius="8">
+            <x1:Entry
+              x:Name="ownersTelNumberEntry"
+              Completed="ownersTelNumberEntry_Completed"
+              FontSize="Small"
+              HeightRequest="40"
+              Keyboard="Telephone"
+              Placeholder="Phone"
+              Text=""
+              TextChanged="ownersTelNumberEntry_TextChanged"
+              VerticalOptions="Center" />
+          </inputLayout:SfTextInputLayout>
+        </x1:StackLayout>
+
+        <!--  ==================  -->
+        <!--  Email Text  -->
+        <!--  ==================  -->
+        <x1:StackLayout
+          Grid.Row="2"
+          Grid.Column="0"
+          HorizontalOptions="Center"
+          VerticalOptions="Center">
+          <x1:Label
+            Margin="0,5,0,5"
+            BackgroundColor="Black"
+            FontSize="Micro"
+            HorizontalOptions="FillAndExpand"
+            HorizontalTextAlignment="End"
+            Text="Your Email...:"
+            TextColor="White"
+            VerticalTextAlignment="Center" />
+        </x1:StackLayout>
+
+        <!--  ==================  -->
+        <!--  Email Input  -->
+        <!--  ==================  -->
+        <x1:StackLayout
+          Grid.Row="2"
+          Grid.Column="1"
+          HorizontalOptions="Center"
+          VerticalOptions="Center">
+          <inputLayout:SfTextInputLayout
+            ContainerBackgroundColor="#E6EEF9"
+            ContainerType="Filled"
+            FocusedColor="#0450C2"
+            HeightRequest="30"
+            InputViewPadding="8"
+            OutlineCornerRadius="8">
+            <x1:Entry
+              x:Name="ownersEmailEntry"
+              Completed="ownersEmailEntry_Completed"
+              FontSize="Small"
+              HeightRequest="40"
+              Keyboard="Email"
+              Placeholder="Email"
+              Text=""
+              TextChanged="ownersEmailEntry_TextChanged"
+              VerticalOptions="Center" />
+          </inputLayout:SfTextInputLayout>
+        </x1:StackLayout>
+      </x1:Grid>
+    </x1:ScrollView>
+
+    <!--  ==================  -->
+    <!--  CNG Msg on bottom  -->
+    <!--  ==================  -->
+    <local:LabelClickable
+      x:Name="BottomLabel2"
+      Margin="10,2,10,2"
+      BackgroundColor="LightYellow"
+      FontSize="Micro"
+      HeightRequest="50"
+      HorizontalOptions="CenterAndExpand"
+      HorizontalTextAlignment="Start"
+      Text="Published by CNG Internet Software, LLC. Publisher of the 'Small App - Big Impact' App Series [Tap for website]"
+      TextColor="Black"
+      VerticalOptions="Center"
+      VerticalTextAlignment="Center"  Padding="10,0" />
+
+  </x1:StackLayout>
+</x1:ContentPage>

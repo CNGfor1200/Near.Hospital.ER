@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<x1:ContentPage
+  x:Class="NearHspt.Entry100"
+  xmlns="http://xamarin.com/schemas/2014/forms"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+  xmlns:button="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:checkbox="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:chipGroup="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:chips="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+  xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+  xmlns:local="clr-namespace:NearHspt.AA_Utilities"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:radiobutton="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:radiogroup="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:segmentedcontrol="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:sfPopup="clr-namespace:Syncfusion.XForms.SfPopupLayout;assembly=Syncfusion.SfPopupLayout.XForms"
+  xmlns:sfSwitch="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:x1="http://xamarin.com/schemas/2014/forms"
+  mc:Ignorable="d">
+
+  <x1:ContentPage.ToolbarItems>
+    <x1:ToolbarItem
+      Name="MenuItem0"
+      Clicked="BaseGuide_Clicked"
+      Icon="help.png"
+      Order="Primary"
+      Priority="0" />
+    <x1:ToolbarItem
+      Name="MenuItem1"
+      Clicked="BaseGuide_Clicked"
+      Order="Secondary"
+      Priority="0"
+      Text="User Guide" />
+    <x1:ToolbarItem
+      Name="MenuItem2"
+      Clicked="BaseShare_Clicked"
+      Order="Secondary"
+      Priority="1"
+      Text="Share This App" />
+    <x1:ToolbarItem
+      Name="MenuItem3"
+      Clicked="BaseSetup_Clicked"
+      Order="Secondary"
+      Priority="1"
+      Text="Setup" />
+    <x1:ToolbarItem
+      Name="MenuItem4"
+      Clicked="BaseDisclaimer_Clicked"
+      Order="Secondary"
+      Priority="1"
+      Text="Legal Disclaimer" />
+    <x1:ToolbarItem
+      Name="MenuItem5"
+      Clicked="BasePrivacy_Clicked"
+      Order="Secondary"
+      Priority="1"
+      Text="Privacy" />
+    <x1:ToolbarItem
+      Name="MenuItem6"
+      Clicked="StatAbout_Clicked"
+      Order="Secondary"
+      Priority="1"
+      Text="About -- References" />
+    <x1:ToolbarItem
+      Name="MenuItem7"
+      Clicked="BaseContactUs_Clicked"
+      Order="Secondary"
+      Priority="1"
+      Text="Contact Us" />
+  </x1:ContentPage.ToolbarItems>
+
+
+  <x1:StackLayout>
+    <x1:ScrollView VerticalScrollBarVisibility="Always">
+
+      <!--  ==================  -->
+      <x1:StackLayout
+        x:Name="MainStack"
+        BackgroundColor="WhiteSmoke"
+        Spacing="30">
+
+        <!--  1  -->
+        <x1:Frame
+          x:Name="LocationFrame"
+          Margin="10,10,10,10"
+          Padding="0"
+          BackgroundColor="WhiteSmoke"
+          BorderColor="Gray"
+          HorizontalOptions="FillAndExpand">
+
+          <x1:StackLayout
+            x:Name="MainFrameStack0"
+            Padding="15"
+            HorizontalOptions="FillAndExpand"
+            Spacing="90">
+
+            <!--  Border around 1  -->
+            <border:SfBorder
+              Padding="8,0,8,0"
+              BackgroundColor="LightGray"
+              BorderColor="Green"
+              CornerRadius="3"
+              HorizontalOptions="FillAndExpand"
+              WidthRequest="300">
+
+              <x1:StackLayout>
+                <!--  1 content  -->
+                <x1:Label
+                  Margin="0,5,0,0"
+                  BackgroundColor="LightGray"
+                  FontSize="Large"
+                  HorizontalOptions="FillAndExpand"
+                  HorizontalTextAlignment="Center"
+                  Text="Nearby Hospitals / ER's&#x0a;"
+                  TextColor="Black"
+                  VerticalTextAlignment="Center" />
+
+                <x1:Label
+                  Margin="0,0,0,5"
+                  BackgroundColor="LightGray"
+                  FontAttributes="Bold"
+                  FontSize="Small"
+                  HorizontalOptions="FillAndExpand"
+                  HorizontalTextAlignment="Center"
+                  Text="Details, Ratings, Direction&#x0a;Within 100 miles, or 100count"
+                  TextColor="Blue"
+                  VerticalTextAlignment="Center" />
+              </x1:StackLayout>
+            </border:SfBorder>
+
+
+            <!--  Border around 2  -->
+            <border:SfBorder
+              Padding="8,0,8,0"
+              BorderColor="Green"
+              BorderWidth="4"
+              CornerRadius="3"
+              HorizontalOptions="FillAndExpand"
+              WidthRequest="300">
+
+              <!--  2 content  -->
+              <x1:StackLayout>
+
+                <x1:Button
+                  x:Name="btFindHospital"
+                  Margin="0,20,0,0"
+                  BackgroundColor="DarkRed"
+                  BorderColor="White"
+                  BorderWidth="2"
+                  Clicked="btFindHospital_Clicked"
+                  CornerRadius="10"
+                  FontAttributes="Italic"
+                  FontSize="Small"
+                  HeightRequest="55"
+                  HorizontalOptions="Center"
+                  ImageSource="techn.jpg"
+                  Text="Hospital"
+                  TextColor="White"
+                  VerticalOptions="Center"
+                  WidthRequest="160" />
+
+                <x1:Button
+                  x:Name="btHospitalList"
+                  Margin="0,10,0,20"
+                  BackgroundColor="LightGray"
+                  BorderWidth="2"
+                  Clicked="btHospitalList_Clicked"
+                  CornerRadius="10"
+                  FontAttributes="Italic"
+                  FontSize="Small"
+                  HeightRequest="50"
+                  HorizontalOptions="Center"
+                  ImageSource="docitsmall.jpg"
+                  Text="Plain List Only"
+                  TextColor="Black"
+                  VerticalOptions="Center"
+                  WidthRequest="200" />
+
+              </x1:StackLayout>
+
+            </border:SfBorder>
+
+          </x1:StackLayout>
+        </x1:Frame>
+
+      </x1:StackLayout>
+    </x1:ScrollView>
+
+    <!--  ==================  -->
+    <!--  CNG Msg on bottom  -->
+    <!--  ==================  -->
+    <local:LabelClickable
+      x:Name="BottomLabel2"
+      Margin="10,2,10,2"
+      Padding="10,0"
+      BackgroundColor="LightYellow"
+      FontSize="Micro"
+      HeightRequest="50"
+      HorizontalOptions="CenterAndExpand"
+      HorizontalTextAlignment="Start"
+      Text="Published by CNG Internet Software, LLC. Publisher of the 'Small App - Big Impact' App Series [Tap for website]"
+      TextColor="Black"
+      VerticalOptions="Center"
+      VerticalTextAlignment="Center" />
+
+  </x1:StackLayout>
+
+</x1:ContentPage>

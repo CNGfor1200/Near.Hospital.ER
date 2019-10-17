@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<x1:ContentPage
+  x:Class="NearHspt.BaseGuide"
+  xmlns="http://xamarin.com/schemas/2014/forms"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+  xmlns:button="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:checkbox="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:chipGroup="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:chips="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+  xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+  xmlns:local="clr-namespace:NearHspt.AA_Utilities"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:radiobutton="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:radiogroup="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:segmentedcontrol="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:sfPopup="clr-namespace:Syncfusion.XForms.SfPopupLayout;assembly=Syncfusion.SfPopupLayout.XForms"
+  xmlns:sfSwitch="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:x1="http://xamarin.com/schemas/2014/forms"
+  mc:Ignorable="d">
+
+  <x1:ContentPage.Padding>
+    <x1:OnPlatform x:TypeArguments="Thickness">
+      <x1:On Platform="iOS" Value="0, 20, 0, 0" />
+      <x1:On Platform="Android" Value="0, 0, 0, 0" />
+      <x1:On Platform="UWP" Value="0, 0, 0, 0" />
+    </x1:OnPlatform>
+  </x1:ContentPage.Padding>
+
+
+  <x1:StackLayout>
+    <x1:ScrollView VerticalScrollBarVisibility="Always">
+
+      <!--  ==================  -->
+      <x1:StackLayout
+        x:Name="MainStack"
+        BackgroundColor="WhiteSmoke"
+        Spacing="0">
+
+        <!--  1  -->
+        <x1:Frame
+          x:Name="LocationFrame"
+          Margin="10,0"
+          Padding="0"
+          BackgroundColor="WhiteSmoke"
+          BorderColor="Gray"
+          HorizontalOptions="FillAndExpand">
+
+          <x1:StackLayout
+            x:Name="MainFrameStack0"
+            Padding="15"
+            HorizontalOptions="FillAndExpand"
+            Spacing="0">
+
+            <!--  Border around 1  -->
+            <border:SfBorder
+              Padding="8,0,8,0"
+              BorderColor="Green"
+              CornerRadius="3"
+              HorizontalOptions="FillAndExpand"
+              WidthRequest="300">
+
+              <!--  1 content  -->
+              <x1:Label
+                Margin="0,5,0,5"
+                BackgroundColor="LightGray"
+                FontSize="Small"
+                HorizontalOptions="FillAndExpand"
+                HorizontalTextAlignment="Start"
+                Text=" This app finds nearby Hospitals&#x0a;   -- with ER dept's.  ( 100 miles range )&#x0a;    -- using GPS"
+                TextColor="Black"
+                VerticalTextAlignment="Center" />
+
+            </border:SfBorder>
+
+
+            <!--  No Border around 2  -->
+            <!--  2 content  -->
+            <x1:Label
+              Margin="0,10,0,5"
+              BackgroundColor="LightGray"
+              FontAttributes="Bold"
+              FontSize="Small"
+              HorizontalOptions="FillAndExpand"
+              HorizontalTextAlignment="Start"
+              Text="Usage ..................."
+              TextColor="Black"
+              VerticalTextAlignment="Center" />
+
+
+            <!--  Border around 3  -->
+            <border:SfBorder
+              Padding="8,0,8,0"
+              BorderColor="Green"
+              CornerRadius="3"
+              HorizontalOptions="FillAndExpand"
+              WidthRequest="300">
+
+              <!--  3 content  -->
+              <x1:Label
+                Margin="0,5,0,5"
+                BackgroundColor="LightGray"
+                FontSize="Small"
+                HorizontalOptions="FillAndExpand"
+                HorizontalTextAlignment="Start"
+                Text=" 1 - start the app, &#x0a; 2 - wait seconds for location / DB to load&#x0a;&#x0a;   3 -- continue w/ Nearest Hospital&#x0a;      tap on Large top Button&#x0a;      or tap on&#x0a;   -- [Hospitals - Show List] &#x0a;      and next tap on a list item for more info&#x0a;"
+                TextColor="Black"
+                VerticalTextAlignment="Center" />
+
+            </border:SfBorder>
+
+
+
+            <!--  No Border around 4  -->
+            <!--  4 content  -->
+            <x1:Label
+              Margin="0,10,0,5"
+              BackgroundColor="LightGray"
+              FontAttributes="Bold"
+              FontSize="Small"
+              HorizontalOptions="FillAndExpand"
+              HorizontalTextAlignment="Start"
+              Text="Additional Info includes:"
+              TextColor="Black"
+              VerticalTextAlignment="Center" />
+
+
+            <!--  Border around 5  -->
+            <border:SfBorder
+              Padding="8,0,8,0"
+              BorderColor="Green"
+              CornerRadius="3"
+              HorizontalOptions="FillAndExpand"
+              WidthRequest="300">
+
+              <!--  5 content  -->
+              <x1:Label
+                Margin="0,5,0,5"
+                BackgroundColor="LightGray"
+                FontSize="Small"
+                HorizontalOptions="FillAndExpand"
+                HorizontalTextAlignment="Start"
+                Text=" -- DETAILS about the hospital&#x0a; -- Google Ratings about the hospital&#x0a; -- ability to CALL the hospital (preset #)&#x0a; -- show Web Site&#x0a; -- Driving Directions to the hospital&#x0a;"
+                TextColor="Black"
+                VerticalTextAlignment="Center" />
+
+            </border:SfBorder>
+
+
+            <!--  No Border around 6  -->
+            <!--  6 content  -->
+            <x1:Label
+              Margin="0,10,0,5"
+              FontSize="Small"
+              HorizontalOptions="FillAndExpand"
+              HorizontalTextAlignment="Center"
+              Text="Please, call for professional, competent Help as soon as the injured person is stabilized."
+              TextColor="Black"
+              VerticalTextAlignment="Center" />
+
+          </x1:StackLayout>
+        </x1:Frame>
+
+      </x1:StackLayout>
+    </x1:ScrollView>
+
+    <!--  ==================  -->
+    <!--  CNG Msg on bottom  -->
+    <!--  ==================  -->
+    <local:LabelClickable
+      x:Name="BottomLabel2"
+      Margin="10,2,10,2"
+      BackgroundColor="LightYellow"
+      FontSize="Micro"
+      HeightRequest="50"
+      HorizontalOptions="CenterAndExpand"
+      HorizontalTextAlignment="Start"
+      Text="Published by CNG Internet Software, LLC. Publisher of the 'Small App - Big Impact' App Series [Tap for website]"
+      TextColor="Black"
+      VerticalOptions="Center"
+      VerticalTextAlignment="Center"  Padding="10,0" />
+
+  </x1:StackLayout>
+</x1:ContentPage>

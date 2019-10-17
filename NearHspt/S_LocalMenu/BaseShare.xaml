@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<x1:ContentPage
+  x:Class="NearHspt.BaseShare"
+  xmlns="http://xamarin.com/schemas/2014/forms"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+  xmlns:button="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:checkbox="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:chipGroup="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:chips="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+  xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+  xmlns:local="clr-namespace:NearHspt.AA_Utilities"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:radiobutton="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:radiogroup="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:segmentedcontrol="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:sfPopup="clr-namespace:Syncfusion.XForms.SfPopupLayout;assembly=Syncfusion.SfPopupLayout.XForms"
+  xmlns:sfSwitch="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:x1="http://xamarin.com/schemas/2014/forms"
+  mc:Ignorable="d">
+
+  <x1:ContentPage.Padding>
+    <x1:OnPlatform x:TypeArguments="Thickness">
+      <x1:On Platform="iOS" Value="0, 20, 0, 0" />
+      <x1:On Platform="Android" Value="0, 0, 0, 0" />
+      <x1:On Platform="UWP" Value="0, 0, 0, 0" />
+    </x1:OnPlatform>
+  </x1:ContentPage.Padding>
+
+  <x1:StackLayout IsEnabled="True" IsVisible="True">
+    <x1:ScrollView VerticalScrollBarVisibility="Always">
+
+      <!--  ==================  -->
+      <!--  Location/Contact  -->
+      <!--  ==================  -->
+      <x1:StackLayout
+        x:Name="MainStack"
+        BackgroundColor="WhiteSmoke"
+        Spacing="0">
+
+        <!--  1  -->
+        <x1:Frame
+          x:Name="LocationFrame"
+          Margin="10,0"
+          Padding="0"
+          BackgroundColor="WhiteSmoke"
+          BorderColor="Gray"
+          HorizontalOptions="FillAndExpand">
+
+          <x1:StackLayout
+            x:Name="MainFrameStack0"
+            Padding="15"
+            HorizontalOptions="FillAndExpand"
+            Spacing="16">
+
+
+            <!--  Border around 1  -->
+            <border:SfBorder
+              Padding="8,0,8,0"
+              BorderColor="Green"
+              CornerRadius="3"
+              HorizontalOptions="FillAndExpand"
+              WidthRequest="300">
+
+              <!--  1 content  -->
+              <x1:Label
+                Margin="0,5,0,5"
+                BackgroundColor="LightGray"
+                FontSize="Default"
+                HorizontalOptions="FillAndExpand"
+                HorizontalTextAlignment="Center"
+                Text="&#x0a;If you think that this app could be of Use to someone else,&#x0a;why not send a brief note and let that person know."
+                TextColor="Black"
+                VerticalTextAlignment="Center" />
+
+            </border:SfBorder>
+
+            <!--  Share Button  -->
+            <x1:StackLayout
+              x:Name="MainFrameStack22"
+              Padding="5"
+              HorizontalOptions="Start"
+              Spacing="10">
+              <x1:Button
+                x:Name="SfButton_Share"
+                Padding="5"
+                BackgroundColor="LightGray"
+                Clicked="SfButton_Share_Clicked"
+                CornerRadius="8"
+                FontSize="Small"
+                HeightRequest="33"
+                Text="Get Share Options"
+                TextColor="White"
+                WidthRequest="160" />
+            </x1:StackLayout>
+          </x1:StackLayout>
+        </x1:Frame>
+
+      </x1:StackLayout>
+    </x1:ScrollView>
+
+    <!--  ==================  -->
+    <!--  CNG Msg on bottom  -->
+    <!--  ==================  -->
+    <local:LabelClickable
+      x:Name="BottomLabel2"
+      Margin="10,2,10,2"
+      BackgroundColor="LightYellow"
+      FontSize="Micro"
+      HeightRequest="50"
+      HorizontalOptions="CenterAndExpand"
+      HorizontalTextAlignment="Start"
+      Text="Published by CNG Internet Software, LLC. Publisher of the 'Small App - Big Impact' App Series [Tap for website]"
+      TextColor="Black"
+      VerticalOptions="Center"
+      VerticalTextAlignment="Center"  Padding="10,0" />
+
+    <x1:Label
+      x:Name="shareLabel"
+      BackgroundColor="LightGray"
+      FontSize="Default"
+      HorizontalOptions="FillAndExpand"
+      HorizontalTextAlignment="Center"
+      IsVisible="False"
+      Text="I found this new app&#x0a;[Near Hospitals / EMS]. &#x0a;This app has a great way to list all near hospitals that have ER facilities, brings up the appropruate Google display, and also lists other peoples ratings.&#x0a;It's fun to do.; &#x0a;I am sending you the link to get it for yourself.&#x0a;[ https://www.cnginternetsoftware.com/smart_phone_software ] "
+      TextColor="Black"
+      VerticalTextAlignment="Center"  Padding="10,0" />
+  
+  </x1:StackLayout>
+</x1:ContentPage>

@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<x1:ContentPage
+  x:Class="NearHspt.FindHospital"
+  xmlns="http://xamarin.com/schemas/2014/forms"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+  xmlns:button="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:checkbox="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:chipGroup="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:chips="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+  xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+  xmlns:local="clr-namespace:NearHspt.AA_Utilities"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:radiobutton="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:radiogroup="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:segmentedcontrol="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:sfSwitch="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:x1="http://xamarin.com/schemas/2014/forms"
+  mc:Ignorable="d">
+
+
+  <!--
+    Independant Parts of the Content Page
+  -->
+  <x1:ContentPage.ToolbarItems>
+    <x1:ToolbarItem
+      Name="MenuItem0"
+      Clicked="BaseGuide_Clicked"
+      Icon="help.png"
+      Order="Primary"
+      Priority="0" />
+    <x1:ToolbarItem
+      Name="MenuItem1"
+      Clicked="BaseGuide_Clicked"
+      Order="Secondary"
+      Priority="0"
+      Text="User Guide" />
+    <x1:ToolbarItem
+      Name="MenuItem2"
+      Clicked="BaseShare_Clicked"
+      Order="Secondary"
+      Priority="1"
+      Text="Share This App" />
+    <x1:ToolbarItem
+      Name="MenuItem3"
+      Clicked="BaseSetup_Clicked"
+      Order="Secondary"
+      Priority="1"
+      Text="Setup" />
+    <x1:ToolbarItem
+      Name="MenuItem4"
+      Clicked="BaseDisclaimer_Clicked"
+      Order="Secondary"
+      Priority="1"
+      Text="Legal Disclaimer" />
+    <x1:ToolbarItem
+      Name="MenuItem5"
+      Clicked="BasePrivacy_Clicked"
+      Order="Secondary"
+      Priority="1"
+      Text="Privacy" />
+    <x1:ToolbarItem
+      Name="MenuItem6"
+      Clicked="StatAbout_Clicked"
+      Order="Secondary"
+      Priority="1"
+      Text="About -- References" />
+    <x1:ToolbarItem
+      Name="MenuItem7"
+      Clicked="BaseContactUs_Clicked"
+      Order="Secondary"
+      Priority="1"
+      Text="Contact Us" />
+  </x1:ContentPage.ToolbarItems>
+
+
+
+  <!--
+    General Stacklayout, entire screen
+  -->
+  <x1:StackLayout>
+    <!--
+      General Scrollable stuff, (excluding fixed 'CNG Msg")
+    -->
+    <x1:ScrollView x:Name="GenScrollWindow" VerticalScrollBarVisibility="Always">
+
+      <!--
+        Stacklayout, all material inside outer Frame
+      -->
+      <x1:StackLayout
+        x:Name="MainStack"
+        BackgroundColor="WhiteSmoke"
+        Spacing="30">
+
+        <!--
+          Outer Frame, framing all other Borders
+        -->
+        <x1:Frame
+          x:Name="LocationFrame"
+          Margin="10,10,10,10"
+          Padding="0,0,0,0"
+          BackgroundColor="LightGray"
+          BorderColor="Red"
+          HorizontalOptions="FillAndExpand">
+
+          <!--
+            Stacklayout, holding (3) sections via 'Borders'
+          -->
+          <x1:StackLayout
+            x:Name="MainFrameStack"
+            Padding="5"
+            HorizontalOptions="FillAndExpand"
+            Spacing="30">
+
+            <!--
+              1st Border, Nextdoor hospital
+            -->
+            <border:SfBorder
+              x:Name="brNearestHospital"
+              Padding="8,0,8,0"
+              BorderColor="Green"
+              CornerRadius="3"
+              HorizontalOptions="FillAndExpand">
+
+              <!--  consolidating all Controls under 'SfBorder  -->
+              <x1:StackLayout>
+                <x1:Label
+                  x:Name="Nearest_Hospital"
+                  Margin="5,5,0,5"
+                  BackgroundColor="LightGray"
+                  FontSize="Micro"
+                  HorizontalOptions="FillAndExpand"
+                  HorizontalTextAlignment="Start"
+                  Text="Your Next-Door Hospital / Emergency Room"
+                  TextColor="Black"
+                  VerticalTextAlignment="Center" />
+
+                <x1:Button
+                  x:Name="btNearestHospital"
+                  Margin="5,0,10,20"
+                  BackgroundColor="Yellow"
+                  BorderColor="White"
+                  BorderWidth="2"
+                  Clicked="btNearestHospital_ClickedAsync"
+                  CornerRadius="10"
+                  FontSize="Small"
+                  HorizontalOptions="Center"
+                  ImageSource="EMS.png"
+                  Text="Loading..."
+                  TextColor="Black"
+                  VerticalOptions="Center" />
+
+              </x1:StackLayout>
+            </border:SfBorder>
+
+
+            <!--
+              2nd Border, List of all other Hospitals
+            -->
+            <border:SfBorder
+              Padding="8,0,8,0"
+              BorderColor="Green"
+              CornerRadius="3"
+              HorizontalOptions="FillAndExpand">
+
+              <!--  consolidating all Controls under 'SfBorder  -->
+              <x1:StackLayout>
+                <x1:Label
+                  Margin="5,5,0,5"
+                  BackgroundColor="LightGray"
+                  FontSize="Micro"
+                  HorizontalOptions="FillAndExpand"
+                  HorizontalTextAlignment="Start"
+                  Text="All other hospitals, 100 miles surrounding"
+                  TextColor="Black"
+                  VerticalTextAlignment="Center" />
+
+                <x1:Button
+                  x:Name="btdisplayAllHospitals"
+                  Margin="0,0,0,20"
+                  BackgroundColor="LightYellow"
+                  BorderColor="White"
+                  BorderWidth="2"
+                  Clicked="btdisplayAllHospitals_Clicked"
+                  CornerRadius="10"
+                  FontSize="Small"
+                  HeightRequest="55"
+                  HorizontalOptions="Center"
+                  ImageSource="ambulance.png"
+                  Text="Loading other hospitals. One moment..."
+                  TextColor="Black"
+                  VerticalOptions="Center" />
+
+
+
+              </x1:StackLayout>
+
+            </border:SfBorder>
+
+
+            <!--
+              3rd Border, current location details
+            -->
+            <border:SfBorder
+              Padding="8,0,8,0"
+              BorderColor="Green"
+              CornerRadius="3"
+              HorizontalOptions="FillAndExpand">
+
+
+              <!--  Details about current Location  -->
+              <x1:StackLayout>
+
+                <!--  Text, question mark horizontal  -->
+                <x1:StackLayout
+                  x:Name="addressQuestion"
+                  Padding="5"
+                  HorizontalOptions="Start"
+                  Orientation="Horizontal"
+                  Spacing="5">
+                  <x1:Label
+                    Margin="5,5,0,5"
+                    BackgroundColor="LightGray"
+                    FontSize="Micro"
+                    HorizontalOptions="FillAndExpand"
+                    HorizontalTextAlignment="Start"
+                    Text="My Address via GPS..."
+                    TextColor="Black"
+                    VerticalTextAlignment="Center" />
+
+                  <x1:Image HorizontalOptions="Start" Source="smallhelp.png">
+                    <x1:Image.GestureRecognizers>
+                      <x1:TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                    </x1:Image.GestureRecognizers>
+                  </x1:Image>
+
+                </x1:StackLayout>
+
+                <!--  Text, Address, Google mark  -->
+                <x1:StackLayout Orientation="Horizontal">
+                  <border:SfBorder
+                    Padding="0,0,0,0"
+                    BorderColor="Blue"
+                    CornerRadius="3"
+                    HorizontalOptions="FillAndExpand">
+                    <x1:Label
+                      x:Name="PrimlblDisplayAddress"
+                      Margin="0,0,0,0"
+                      BackgroundColor="LightYellow"
+                      FontSize="Micro"
+                      HorizontalOptions="FillAndExpand"
+                      HorizontalTextAlignment="Start"
+                      Text="Loading ... "
+                      TextColor="Black"
+                      VerticalTextAlignment="Center" />
+                  </border:SfBorder>
+
+                  <x1:Image Margin="10,0,0,0" Source="aamylocation.png">
+                    <x1:Image.GestureRecognizers>
+                      <x1:TapGestureRecognizer Tapped="TapGestureGoogle_Tapped" />
+                    </x1:Image.GestureRecognizers>
+                  </x1:Image>
+                </x1:StackLayout>
+
+                <x1:Label
+                  x:Name="lblLating"
+                  Margin="5,15,0,15"
+                  BackgroundColor="LightGray"
+                  FontSize="Micro"
+                  HorizontalOptions="FillAndExpand"
+                  HorizontalTextAlignment="Start"
+                  Text="Latitude  / Longitude -- more..."
+                  TextColor="Black"
+                  VerticalTextAlignment="Center" />
+              </x1:StackLayout>
+            </border:SfBorder>
+
+          </x1:StackLayout>
+        </x1:Frame>
+
+      </x1:StackLayout>
+
+
+    </x1:ScrollView>
+
+    <!--  ======================================  -->
+    <!--  CNG Msg on bottom of all other layout  -->
+    <!--  ======================================  -->
+    <local:LabelClickable
+      x:Name="BottomLabel2"
+      Margin="10,2,10,2"
+      Padding="10,0"
+      BackgroundColor="LightYellow"
+      FontSize="Micro"
+      HeightRequest="50"
+      HorizontalOptions="CenterAndExpand"
+      HorizontalTextAlignment="Start"
+      Text="Published by CNG Internet Software, LLC. Publisher of the 'Small App - Big Impact' App Series [Tap for website]"
+      TextColor="Black"
+      VerticalOptions="Center"
+      VerticalTextAlignment="Center" />
+
+  </x1:StackLayout>
+
+</x1:ContentPage>

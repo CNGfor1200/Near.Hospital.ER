@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<x1:ContentPage
+  x:Class="NearHspt.HospitalList"
+  xmlns="http://xamarin.com/schemas/2014/forms"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+  xmlns:button="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:checkbox="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:chipGroup="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:chips="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+  xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+  xmlns:local="clr-namespace:NearHspt.AA_Utilities"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:radiobutton="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:radiogroup="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:segmentedcontrol="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:sfGrid="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms"
+  xmlns:sfSwitch="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+  xmlns:x1="http://xamarin.com/schemas/2014/forms"
+  xmlns:x11="clr-namespace:NearHspt"
+  mc:Ignorable="d">
+
+
+  <!--
+    Independant Parts of the Content Page
+  -->
+  <x1:ContentPage.ToolbarItems>
+    <x1:ToolbarItem
+      Name="MenuItem0"
+      Clicked="BaseGuide_Clicked"
+      Icon="help.png"
+      Order="Primary"
+      Priority="0" />
+    <x1:ToolbarItem
+      Name="MenuItem1"
+      Clicked="BaseGuide_Clicked"
+      Order="Secondary"
+      Priority="0"
+      Text="User Guide" />
+    <x1:ToolbarItem
+      Name="MenuItem2"
+      Clicked="BaseShare_Clicked"
+      Order="Secondary"
+      Priority="1"
+      Text="Share This App" />
+    <x1:ToolbarItem
+      Name="MenuItem3"
+      Clicked="BaseSetup_Clicked"
+      Order="Secondary"
+      Priority="1"
+      Text="Setup" />
+    <x1:ToolbarItem
+      Name="MenuItem4"
+      Clicked="BaseDisclaimer_Clicked"
+      Order="Secondary"
+      Priority="1"
+      Text="Legal Disclaimer" />
+    <x1:ToolbarItem
+      Name="MenuItem5"
+      Clicked="BasePrivacy_Clicked"
+      Order="Secondary"
+      Priority="1"
+      Text="Privacy" />
+    <x1:ToolbarItem
+      Name="MenuItem6"
+      Clicked="StatAbout_Clicked"
+      Order="Secondary"
+      Priority="1"
+      Text="About -- References" />
+    <x1:ToolbarItem
+      Name="MenuItem7"
+      Clicked="BaseContactUs_Clicked"
+      Order="Secondary"
+      Priority="1"
+      Text="Contact Us" />
+  </x1:ContentPage.ToolbarItems>
+
+  <x1:ContentPage.BindingContext>
+    <x11:HospitalDBDetails x:Name="HospitalDetailsBinder" />
+  </x1:ContentPage.BindingContext>
+
+  <!--
+    General Stacklayout, entire screen
+  -->
+  <x1:StackLayout>
+    <!--
+      General Scrollable stuff, (excluding fixed 'CNG Msg")
+    -->
+    <x1:ScrollView x:Name="GenScrollWindow" VerticalScrollBarVisibility="Always">
+
+      <!--
+        Stacklayout, all material inside outer Frame
+      -->
+      <x1:StackLayout
+        x:Name="MainStack"
+        BackgroundColor="WhiteSmoke"
+        Spacing="30">
+
+        <!--
+          Outer Frame, framing all other Borders
+        -->
+        <x1:Frame
+          x:Name="LocationFrame"
+          Margin="10,10,10,10"
+          Padding="0,0,0,0"
+          BackgroundColor="LightGray"
+          BorderColor="Red"
+          HorizontalOptions="FillAndExpand">
+
+          <!--
+            Stacklayout, holding (3) sections via 'Borders'
+          -->
+          <x1:StackLayout
+            x:Name="MainFrameStack"
+            Padding="5"
+            HorizontalOptions="FillAndExpand"
+            Spacing="30">
+
+            <!--
+              1st Border, Grid List
+            -->
+            <border:SfBorder
+              x:Name="brNearestHospital"
+              Padding="8,0,8,0"
+              BorderColor="Green"
+              CornerRadius="3"
+              HorizontalOptions="FillAndExpand">
+
+              <!--  consolidating all Controls under 'SfBorder  -->
+              <x1:StackLayout>
+                <x1:SearchBar
+                  FontSize="Small"
+                  Placeholder="  ...search - Hospital Name"
+                  TextChanged="SearchBar_TextChanged" />
+
+                <sfGrid:SfDataGrid
+                  x:Name="dataGrid"
+                  AllowDraggingColumn="True"
+                  AllowKeyboardNavigation="True"
+                  AllowLoadMore="True"
+                  AllowSorting="True"
+                  AllowTriStateSorting="True"
+                  AutoGenerateColumns="False"
+                  ColumnSizer="None"
+                  EnableDataVirtualization="True"
+                  HeaderRowHeight="45"
+                  IsEnabled="True"
+                  IsVisible="True"
+                  ItemsSource="{x1:Binding HospitalInfoCollection}"
+                  NavigationMode="Row"
+                  ScrollingMode="PixelLine"
+                  SelectionChanged="dataGrid_SelectionChanged"
+                  SelectionMode="Single"
+                  SortTapAction="SingleTap"
+                  VerticalOptions="FillAndExpand"
+                  VerticalOverScrollMode="Bounce">
+
+                  <sfGrid:SfDataGrid.Columns x:TypeArguments="datagrid:Columns">
+                    <sfGrid:GridTextColumn
+                      Width="70"
+                      Padding="5,0,5,0"
+                      HeaderCellTextSize="17"
+                      HeaderFontAttribute="Bold"
+                      HeaderText="Miles"
+                      HeaderTextAlignment="Center"
+                      MappingName="HospitalDistance"
+                      TextAlignment="Start" />
+                    <sfGrid:GridTextColumn
+                      Width="70"
+                      Padding="5,0,5,0"
+                      HeaderCellTextSize="17"
+                      HeaderFontAttribute="Bold"
+                      HeaderText="Beds"
+                      HeaderTextAlignment="Center"
+                      MappingName="HospitalBedCount"
+                      TextAlignment="Start" />
+                    <sfGrid:GridTextColumn
+                      Padding="5,0,5,0"
+                      ColumnSizer="Star"
+                      HeaderCellTextSize="17"
+                      HeaderFontAttribute="Bold"
+                      HeaderText="Name"
+                      HeaderTextAlignment="Center"
+                      MappingName="HospitalName"
+                      TextAlignment="Start" />
+                  </sfGrid:SfDataGrid.Columns>
+
+
+                </sfGrid:SfDataGrid>
+              </x1:StackLayout>
+            </border:SfBorder>
+
+
+
+          </x1:StackLayout>
+        </x1:Frame>
+
+      </x1:StackLayout>
+
+
+    </x1:ScrollView>
+
+    <!--  ======================================  -->
+    <!--  CNG Msg on bottom of all other layout  -->
+    <!--  ======================================  -->
+    <local:LabelClickable
+      x:Name="BottomLabel2"
+      Margin="10,2,10,2"
+      Padding="10,0"
+      BackgroundColor="LightYellow"
+      FontSize="Micro"
+      HeightRequest="50"
+      HorizontalOptions="CenterAndExpand"
+      HorizontalTextAlignment="Start"
+      Text="Published by CNG Internet Software, LLC. Publisher of the 'Small App - Big Impact' App Series [Tap for website]"
+      TextColor="Black"
+      VerticalOptions="Center"
+      VerticalTextAlignment="Center" />
+
+  </x1:StackLayout>
+
+</x1:ContentPage>

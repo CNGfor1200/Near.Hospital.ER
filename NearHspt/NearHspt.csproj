@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="AA_Utilities\HospitalDBInfo" />
+    <None Remove="kranken.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="AA_Utilities\HospitalDBInfo" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="kranken.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Syncfusion.Licensing" Version="17.3.0.14" />
+    <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="17.3.0.14" />
+    <PackageReference Include="Syncfusion.Xamarin.Compression" Version="17.3.0.14" />
+    <PackageReference Include="Syncfusion.Xamarin.Core" Version="17.3.0.14" />
+    <PackageReference Include="Syncfusion.Xamarin.DataSource" Version="17.3.0.14" />
+    <PackageReference Include="Syncfusion.Xamarin.GridCommon" Version="17.3.0.14" />
+    <PackageReference Include="Syncfusion.Xamarin.SfDataGrid" Version="17.3.0.14" />
+    <PackageReference Include="Syncfusion.Xamarin.SfPopupLayout" Version="17.3.0.14" />
+    <PackageReference Include="Xamarin.Forms" Version="4.3.0.851321-pre3" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Entry100.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="FindHospital.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="HospitalList.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>
